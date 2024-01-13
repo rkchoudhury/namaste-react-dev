@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/rkchoudhury/namaste-react-dev/issues"
   },
-  "homepage": "https://github.com/rkchoudhury/namaste-react-dev#readme"
+  "homepage": "https://github.com/rkchoudhury/namaste-react-dev#readme",
+  "devDependencies": {
+    "parcel": "^2.11.0"
+  }
 }
