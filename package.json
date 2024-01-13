@@ -1,0 +1,19 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "Namaste React By Akshay Saini",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkchoudhury/namaste-react-dev.git"
+  },
+  "author": "Rakesh Choudhury",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rkchoudhury/namaste-react-dev/issues"
+  },
+  "homepage": "https://github.com/rkchoudhury/namaste-react-dev#readme"
+}
