@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import { restaurants } from "./restaurantData";
+
 const Header = () => {
   return (
     <div className="header">
@@ -27,18 +29,27 @@ const Header = () => {
   );
 };
 
-const RestaurantCard = () => {
+const RestaurantCard = (data) => {
+  const { resData } = data;
+  const { cloudinaryImageId, name, avgRating, sla, cuisines } = resData.info;
+
   return (
     <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
       <img
         className="res-logo"
         alt="res-logo"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/x4uyxvihmg8qa3pddkgf"
+        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${cloudinaryImageId}`}
       />
-      <h3>Meghana Foods</h3>
-      <h4>Biriyani, North Indian, Asian</h4>
-      <h4>4.4 stars</h4>
-      <h4>38 mins</h4>
+      <p className="title-text">{name}</p>
+      <div className="rating-time-container">
+        <div>
+          <p className="title-text">{avgRating} stars</p>
+        </div>
+        <div>
+          <p className="title-text">{sla.slaString}</p>
+        </div>
+      </div>
+      <p className="sub-title-text">{cuisines.join(", ")}</p>
     </div>
   );
 };
@@ -47,9 +58,11 @@ const Body = () => {
   return (
     <div className="body">
       <div className="search">Search</div>
-      <diV className="res-container">
-        <RestaurantCard />
-      </diV>
+      <div className="res-container">
+        {restaurants.map((restaurant) => (
+          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+        ))}
+      </div>
     </div>
   );
 };
@@ -64,7 +77,5 @@ const AppLayout = () => {
 };
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-console.log(root);
 
 root.render(<AppLayout />);
