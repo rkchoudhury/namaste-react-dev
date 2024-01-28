@@ -1,10 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import RestaurantCard from "./RestaurantCard";
-import restaurants from "../utils/mockRestaurantData";
+import { GET_RESTAURANT_URL, CORS_PROXY_URL } from "../utils/constants";
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState(restaurants);
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    // Enable the Cors proxy from the chrome extensions
+    const response = await fetch(GET_RESTAURANT_URL);
+
+    // const response = await fetch(`${CORS_PROXY_URL}${GET_RESTAURANT_URL}`);
+
+    const jsonResponse = await response.json();
+
+    const resturants =
+      jsonResponse?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants ?? [];
+
+    setListOfRestaurants(resturants);
+  };
 
   return (
     <div className="body">

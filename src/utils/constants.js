@@ -7,4 +7,9 @@ const LOGO_URL =
 const CART_URL =
   "https://png.pngtree.com/png-vector/20190114/ourmid/pngtree-vector-shopping-cart-icon-png-image_313581.jpg";
 
-export { CDN_URL, LOGO_URL, CART_URL };
+const GET_RESTAURANT_URL =
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9122238&lng=77.5923219&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+
+const CORS_PROXY_URL = "https://corsproxy.io/?";
+
+export { CDN_URL, LOGO_URL, CART_URL, GET_RESTAURANT_URL, CORS_PROXY_URL };
