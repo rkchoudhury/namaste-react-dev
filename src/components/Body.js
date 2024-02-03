@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import RestaurantCard from "./RestaurantCard";
 import { GET_RESTAURANT_URL, CORS_PROXY_URL } from "../utils/constants";
@@ -67,7 +68,13 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          <Link
+            to={`/restaurants/${restaurant.info.id}`}
+            key={restaurant.info.id}
+            style={{ display: "flex" }}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>

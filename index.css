@@ -96,3 +96,8 @@
 .filter {
   display: flex;
 }
+
+a {
+  color: inherit; /* no blue colors for links */
+  text-decoration: inherit; /* no underline */
+}

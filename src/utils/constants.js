@@ -12,4 +12,14 @@ const GET_RESTAURANT_URL =
 
 const CORS_PROXY_URL = "https://corsproxy.io/?";
 
-export { CDN_URL, LOGO_URL, CART_URL, GET_RESTAURANT_URL, CORS_PROXY_URL };
+const RESTAURANT_MENU_URL =
+  "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9122238&lng=77.5923219&restaurantId=";
+
+export {
+  CDN_URL,
+  LOGO_URL,
+  CART_URL,
+  GET_RESTAURANT_URL,
+  CORS_PROXY_URL,
+  RESTAURANT_MENU_URL,
+};
