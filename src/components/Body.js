@@ -2,34 +2,20 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import RestaurantCard from "./RestaurantCard";
-import { GET_RESTAURANT_URL, CORS_PROXY_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import useRestaurantList from "../utils/useRestaurantList";
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const isOnline = useOnlineStatus();
+  const listOfRestaurants = useRestaurantList();
+
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    // Enable the Cors proxy from the chrome extensions
-    const response = await fetch(GET_RESTAURANT_URL);
-
-    // const response = await fetch(`${CORS_PROXY_URL}${GET_RESTAURANT_URL}`);
-
-    const jsonResponse = await response.json();
-
-    const resturants =
-      jsonResponse?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants ?? [];
-
-    setListOfRestaurants(resturants);
-    setFilteredRestaurants(resturants);
-  };
+    setFilteredRestaurants(listOfRestaurants);
+  }, [listOfRestaurants]);
 
   useEffect(() => {
     const filteredData = listOfRestaurants.filter((restaurantData) =>
@@ -39,8 +25,6 @@ const Body = () => {
     );
     setFilteredRestaurants(filteredData);
   }, [searchText]);
-
-  const isOnline = useOnlineStatus();
 
   if (!isOnline) {
     return <h1>Looks like you are offline!!</h1>;
