@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { CART_URL, LOGO_URL } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
+  const onlineStatus = useOnlineStatus();
 
   return (
     <div className="header">
@@ -13,6 +15,8 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
+          {/* For emoji type => windows key + . */}
+          <li>Online Status: {onlineStatus ? "🟢" : "🔴"}</li>
           <li>
             <Link to={"/"}>Home</Link>
           </li>
