@@ -14,16 +14,20 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    setFilteredRestaurants(listOfRestaurants);
+    if (listOfRestaurants.length > 0) {
+      setFilteredRestaurants(listOfRestaurants);
+    }
   }, [listOfRestaurants]);
 
   useEffect(() => {
-    const filteredData = listOfRestaurants.filter((restaurantData) =>
-      restaurantData?.info?.name
-        ?.toLowerCase()
-        .includes(searchText.toLowerCase())
-    );
-    setFilteredRestaurants(filteredData);
+    if (listOfRestaurants.length > 0) {
+      const filteredData = listOfRestaurants.filter((restaurantData) =>
+        restaurantData?.info?.name
+          ?.toLowerCase()
+          .includes(searchText.toLowerCase())
+      );
+      setFilteredRestaurants(filteredData);
+    }
   }, [searchText]);
 
   if (!isOnline) {
