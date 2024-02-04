@@ -101,3 +101,16 @@ a {
   color: inherit; /* no blue colors for links */
   text-decoration: inherit; /* no underline */
 }
+
+.user-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.user-avatar {
+  width: 200px;
+  border-radius: 100px;
+}
