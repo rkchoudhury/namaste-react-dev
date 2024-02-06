@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
@@ -18,6 +18,8 @@ const AppLayout = () => {
     </div>
   );
 };
+
+const Grocery = lazy(() => import("./components/Grocery"));
 
 /**
  * Here with each links we are navigating to different pages
@@ -63,6 +65,14 @@ const rootRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/grocery",
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
       },
     ],
   },
