@@ -11,6 +11,8 @@ const useOnlineStatus = () => {
     window.addEventListener("offline", () => {
       setOnlineStatus(false);
     });
+
+    // Do we need to remove/cleanup the listeners??
   }, []);
 
   return onlineStatus;
