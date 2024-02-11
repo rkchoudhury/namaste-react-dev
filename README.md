@@ -17,5 +17,41 @@ npm install react-router-dom
 
 # Tailwind Css
 
-https://tailwindcss.com/docs/installation/using-postcss
+https://tailwindcss.com/docs/guides/parcel
 npm install -D tailwindcss postcss
+npx tailwindcss init
+
+.postcssrc
+
+<!---
+
+    {
+        "plugins": {
+            "tailwindcss": {}
+        }
+    }
+
+-->
+
+tailwind.config.js
+
+<!---
+    /** @type {import('tailwindcss').Config} */
+    module.exports = {
+        content: [
+            "./src/**/*.{html,js,ts,jsx,tsx}",
+        ],
+        theme: {
+            extend: {},
+        },
+        plugins: [],
+    }
+-->
+
+index.css
+
+<!--
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+-->
