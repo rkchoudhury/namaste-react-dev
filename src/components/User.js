@@ -27,11 +27,11 @@ class User extends Component {
     // debugger;
 
     return (
-      <div className="user-container">
-        <img src={avatar_url} className="user-avatar" />
-        <h2>Name: {name}</h2>
-        <h3>Location: {location}</h3>
-        <h3>
+      <div className="flex justify-center items-center flex-col p-6">
+        <img src={avatar_url} className="w-[200px] rounded-[100px]" />
+        <h2 className="my-2">Name: {name}</h2>
+        <h3 className="my-2">Location: {location}</h3>
+        <h3 className="my-2">
           Contact:{" "}
           <a href={html_url} target="_blank">
             {html_url}
