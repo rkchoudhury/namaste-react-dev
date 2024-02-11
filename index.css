@@ -1,3 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+// old css code
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -98,8 +105,8 @@
 }
 
 a {
-  color: inherit; /* no blue colors for links */
-  text-decoration: inherit; /* no underline */
+  color: inherit;
+  text-decoration: inherit;
 }
 
 .user-container {
@@ -114,3 +121,5 @@ a {
   width: 200px;
   border-radius: 100px;
 }
+
+*/
