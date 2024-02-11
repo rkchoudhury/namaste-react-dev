@@ -14,3 +14,8 @@ npm parcel index.js
 
 react-router-dom
 npm install react-router-dom
+
+# Tailwind Css
+
+https://tailwindcss.com/docs/installation/using-postcss
+npm install -D tailwindcss postcss autoprefixer
