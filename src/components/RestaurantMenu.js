@@ -39,26 +39,12 @@ const RestaurantMenu = () => {
       <div className="border-dashed border-[1px] border-gray-500 w-6/12 my-4"></div>
 
       {categories.map((eachCategory) => {
-        // const { itemCards = [], title = "" } = eachCategory?.card?.card;
-        // return (
-        //   itemCards?.length > 0 && (
-        //     <div key={title || Math.random() * 1000} className="m-4">
-        //       <h3 className="font-medium">{title}</h3>
-        //       <ul>
-        //         {itemCards?.map((eachItem) => {
-        //           const { id, name, price, defaultPrice } = eachItem.card.info;
-        //           return (
-        //             <li key={id} className="m-2">
-        //               {name} - Rs. {price / 100 || defaultPrice / 100}
-        //             </li>
-        //           );
-        //         })}
-        //       </ul>
-        //     </div>
-        //   )
-        // );
-
-        return <ResturantCategory data={eachCategory?.card?.card} />;
+        return (
+          <ResturantCategory
+            data={eachCategory?.card?.card}
+            key={eachCategory?.card?.card?.title}
+          />
+        );
       })}
     </div>
   );
