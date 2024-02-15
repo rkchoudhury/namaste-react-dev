@@ -2,11 +2,18 @@ import { useState } from "react";
 import ListItem from "./ListItem";
 
 const ResturantCategory = (props) => {
-  const { itemCards = [], title = "" } = props.data;
-  const [showListItems, setShowListItems] = useState(false);
+  const { data, showListItems, setExpandedIndex } = props;
+  const { itemCards = [], title = "" } = data;
+
+  //Un-controlled component
+  // const [showListItems, setShowListItems] = useState(false);
+
+  // const onClickListHeader = () => {
+  //   setShowListItems(!showListItems);
+  // };
 
   const onClickListHeader = () => {
-    setShowListItems(!showListItems);
+    setExpandedIndex();
   };
 
   return (

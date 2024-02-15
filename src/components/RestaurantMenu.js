@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Shimmer from "./Shimmer";
@@ -10,15 +11,14 @@ const RestaurantMenu = () => {
   // Calling custom hooks
   const resInfo = useRestaurantMenu(resId);
 
+  const [expandedIndex, setExpandedIndex] = useState(-1);
+
   const {
     name = "",
     cuisines = [],
-    costForTwoMessage = "",
     locality = "",
     city = "",
   } = resInfo?.cards?.[0]?.card?.card?.info ?? {};
-
-  console.log(resInfo?.cards?.[0]?.card?.card?.info);
 
   const { cards = [] } =
     resInfo?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR ?? {};
@@ -26,6 +26,10 @@ const RestaurantMenu = () => {
   const categories = cards.filter(
     (eachCategory) => eachCategory?.card?.card?.itemCards?.length > 0
   );
+
+  const handleExpandCollapse = (pressedIndex) => {
+    setExpandedIndex(expandedIndex === pressedIndex ? -1 : pressedIndex);
+  };
 
   return resInfo === null ? (
     <Shimmer />
@@ -38,11 +42,14 @@ const RestaurantMenu = () => {
       </span>
       <div className="border-dashed border-[1px] border-gray-500 w-6/12 my-4"></div>
 
-      {categories.map((eachCategory) => {
+      {categories.map((eachCategory, index) => {
         return (
+          // Controlled Component
           <ResturantCategory
             data={eachCategory?.card?.card}
             key={eachCategory?.card?.card?.title}
+            showListItems={expandedIndex === index}
+            setExpandedIndex={() => handleExpandCollapse(index)}
           />
         );
       })}
