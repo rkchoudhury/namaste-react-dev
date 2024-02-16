@@ -10,6 +10,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import store from "./redux/store";
+import Cart from "./components/Cart";
 
 const AppLayout = () => {
   return (
@@ -77,6 +78,10 @@ const rootRouter = createBrowserRouter([
             <Grocery />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },
