@@ -19,7 +19,10 @@ const ResturantCategory = (props) => {
   return (
     <div className="w-6/12">
       <div className="p-4 bg-gray-100 my-2 shadow-lg">
-        <div className="flex justify-between" onClick={onClickListHeader}>
+        <div
+          className="flex justify-between cursor-pointer"
+          onClick={onClickListHeader}
+        >
           <span className="font-medium text-lg">
             {title} ({itemCards.length})
           </span>
