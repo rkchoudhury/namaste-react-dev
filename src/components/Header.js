@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { CART_URL, LOGO_URL } from "../utils/constants";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -7,6 +8,8 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const onlineStatus = useOnlineStatus();
+
+  const { items } = useSelector((state) => state.cart);
 
   return (
     <div className="flex justify-between bg-pink-200 items-center shadow-lg">
@@ -31,6 +34,7 @@ const Header = () => {
           </li>
           <li className="px-2">
             <img className="w-10 h-10" src={CART_URL} />
+            <span>({items?.length})</span>
           </li>
           <button
             className="px-2"
