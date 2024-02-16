@@ -26,3 +26,16 @@ const RestaurantCard = (props) => {
 };
 
 export default RestaurantCard;
+
+// HOC
+export const withPromotedLabel = (RestaurantCard) => {
+  // Returns a Component which is a functional component (basically a function)
+  return (props) => (
+    <div className="flex">
+      <label className="absolute bg-green-800 text-white ml-1 mt-6 p-1 rounded-r-sm">
+        Promoted
+      </label>
+      <RestaurantCard {...props} />
+    </div>
+  );
+};
