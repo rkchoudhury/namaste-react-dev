@@ -55,3 +55,8 @@ index.css
     @tailwind components;
     @tailwind utilities;
 -->
+
+# Redux Toolkit
+
+npm install @reduxjs/toolkit
+npm install react-redux
