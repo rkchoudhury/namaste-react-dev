@@ -106,3 +106,18 @@ npm install react-redux
 
 - Install jsdom library
   npm i -D jest-environment-jsdom
+
+- Install preset-react to make JSX work in test cases
+  npm i -D @babel/preset-react
+
+- Include @babel/preset-react inside babel.config.js
+  <!--
+    module.exports = {
+      presets: [
+        ["@babel/preset-env", { targets: { node: "current" } }],
+        ["@babel/preset-react", { runtime: "automatic" }], // Add this
+      ],
+    };
+  -->
+
+- Install @testing-library/jest-dom
