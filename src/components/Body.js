@@ -44,6 +44,7 @@ const Body = () => {
         <div className="px-4">
           <input
             type="text"
+            data-testid="searchInput"
             className="rounded-[200px] w-[400px] h-10 px-4 focus:outline-none focus:border-2 focus:border-sky-400"
             value={searchText}
             onChange={(e) => {
