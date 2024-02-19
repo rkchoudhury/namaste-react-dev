@@ -22,8 +22,9 @@ const ListItem = (props) => {
         className="border-b-2 border-gray-300 py-10 flex justify-center"
       >
         <div className="w-10/12">
-          <div>{isVeg ? "🟩" : "🟥"}</div>
-          <h1 className="font-medium text-lg text-gray-700">{name}</h1>
+          <h1 className="font-medium text-lg text-gray-700">
+            {name} {isVeg ? "🟩" : "🟥"}
+          </h1>
           <p className="text-sm text-gray-700">
             ₹ {price / 100 || defaultPrice / 100}
           </p>
