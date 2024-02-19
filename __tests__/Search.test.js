@@ -5,6 +5,8 @@ import { BrowserRouter } from "react-router-dom";
 import Body from "../src/components/Body";
 import MOCK_DATA from "../__mocks__/restaurantListMockData.json";
 
+// Integartion Testing of Search functionality
+
 global.fetch = jest.fn(() => {
   return Promise.resolve({
     json: () => {

@@ -18,6 +18,7 @@ const ListItem = (props) => {
     return (
       <div
         key={id}
+        data-testid="resMenuItem"
         className="border-b-2 border-gray-300 py-10 flex justify-center"
       >
         <div className="w-10/12">
