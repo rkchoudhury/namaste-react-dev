@@ -3,7 +3,9 @@
 ## Commands
 
 > npm install parcel
+
 > npm install react
+
 > npm install react-dom
 
 ## To start the bundler
@@ -13,6 +15,7 @@
 ## Route
 
 > react-router-dom
+
 > npm install react-router-dom
 
 ## Tailwind Css
@@ -20,6 +23,7 @@
 - https://tailwindcss.com/docs/guides/parcel
 
   > npm install -D tailwindcss postcss
+
   > npx tailwindcss init
 
 - .postcssrc
@@ -60,6 +64,7 @@
 ## Redux Toolkit
 
 > npm install @reduxjs/toolkit
+
 > npm install react-redux
 
 ## Setting up Testing in our App
